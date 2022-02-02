@@ -1,0 +1,229 @@
+@import '../assets/variables.scss';
+.phone{
+  width: 28em;
+  height: 51em;
+  border-radius: 3.2em;
+  .structure{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #152839;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 3px 1px #fff;
+    border-radius: 3.2em;
+    position: relative;
+    transition: ease all 0.5s;
+    .buttons {
+      & > * {
+        position: absolute;
+        left: -3px;
+        width: 3px;
+        background: linear-gradient(90deg, transparent, #152839);
+        border-radius: 1.4em .7em .7em 1.4em;
+      }
+      .switch{
+        top: 100px;
+        height: 1.8em;
+      }
+      .volumne-1{
+        top: 7em;
+        height: 3.2em;
+      }
+      .volumne-2{
+        top: 15em;
+        height: 3.2em;
+      }
+      .right-buttons {
+        top: 11.4em;
+        right: -3px;
+        left: auto;
+        height: 5.7em;
+        border-radius: .7em 1.4em 1.4em .7em;
+      }
+    }
+  }
+  .border{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
+    border-radius: 2.85em;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .camera-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    width: 10.7em;
+    height: 2.3em;
+    border-bottom-left-radius: 1.2em;
+    border-bottom-right-radius: 1.2em;
+    background-color: #000;
+    z-index: 10;
+    &::after , &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      width: .7em;
+      height: .7em;
+      border-radius: 50%;
+      border: .2em solid transparent;
+      border-right-color: #000;
+      transform: rotate(-50deg);
+    }
+  }
+  .screen{
+    background:$background;
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
+    border-radius: 2.3em;
+    position: relative;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .c-card-panel{
+      background:$grey-divider;
+      border-radius: .3em;
+      .numbers{
+        direction: ltr;
+        position: relative;
+        margin: 0 .57em;
+        span:nth-child(1){
+          position: absolute;
+          top: -.2em;
+          left: -.57em;
+       }
+      }
+      .overview{
+        padding: .57em ;
+        .display{
+          padding: 3em 0;
+        }
+        .numbers span:nth-child(1){
+          position: absolute;
+          top: -0.6em;
+          left: -0.5em;
+        }
+      }
+    }
+    .collapse-items{
+      margin-top: .57em;
+      .number-column{
+        width: 45%;
+        .numbers{
+          margin-left: 1.8em;
+          direction: ltr;
+          position: relative;
+          span:nth-child(1){
+            position: absolute;
+            top: -.2em;
+            right: 1em;
+          }
+        }
+      }
+
+      .collapse-items .collapsed .arrow{
+          transform: rotate(0deg);
+      }
+      button.btn{
+        width: 100%;
+        padding:0.57em;
+        border: none;
+        font-family: inherit;
+        color: inherit;
+        cursor: pointer;
+        .arrow{
+          transform: rotate(0deg);
+          transition: .3s all;
+        }
+        &.selected{
+          .arrow{
+            transform: rotate(180deg);
+          }
+        }
+      }
+      .collapse{
+        transition: .6s all;
+        overflow: hidden;
+        &.close{
+          max-height: 0;
+        }
+        &.open{
+          max-height: 20em;
+        }
+      }
+    }
+    .footer{
+      background: #fff;
+      padding: 0.57em 1.1em;
+      position: sticky;
+      bottom: 0;
+      margin-bottom: -5px;
+    }
+    .header{
+      background: #fff;
+      padding: 0.57em 1.1em;
+      position: sticky;
+      top: 0;
+      margin-bottom: 0.57em;
+      z-index: 2;
+    }
+    .progress-chart{
+      span{
+        height: .45em;
+        border-radius:1px;
+        &:nth-child(1){
+          background:$font-green;
+          flex: 0 0 30%;
+        }
+        &:nth-child(2){
+          background:#BFBFBF;
+          flex: 0 0 18%;
+        }
+        &:nth-child(3){
+          background:$font-red;
+          flex: 0 0 50%;
+        }
+      }
+    }
+    .progress-chart-title{
+      font-size: $font-size-md;
+      margin: .57em 0;
+      & > span:nth-child(1){
+        color:$font-green;
+        &>span{
+          padding-right: 1.2em;
+        }
+      }
+      & > span:nth-child(2){
+        color:$font-red;
+        &>span{
+          padding-right: 1.2em;
+        }
+      }
+    }
+  }
+}

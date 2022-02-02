@@ -1,0 +1,85 @@
+@import './assets/variables.scss';
+@font-face {
+  font-family: 'Iran Yekan';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/iranyekanwebregular.ttf') format('truetype');
+}
+
+body{
+  font-family: 'Iran Yekan' , Arial, sans-serif;
+  font-size: 14px;
+  color:$font-color;
+  font-weight: 500;
+  direction: rtl;
+  padding-top: 3em;
+}
+
+.display-flex{
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-content-between{
+  justify-content: space-between;
+}
+.justify-content-around{
+  justify-content: space-around;
+}
+.justify-content-center{
+  justify-content: center;
+}
+.align-items-center{
+  align-items:center;
+}
+.font-lg{
+  font-size:$font-size-lg !important;
+}
+.font-md{
+  font-size:$font-size-md !important;
+}
+.font-sm{
+  font-size:$font-size-sm !important;
+}
+.font-green{
+  color: $font-green !important;
+}
+.font-grey{
+  color: $font-color-grey !important;
+}
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+.table{
+  width: 100%;
+  background:#fff;
+  tr:not(:last-child){
+    td{
+      padding: .35em 0;
+      border-bottom: 1px solid #F5F5F5;
+    }
+  }
+}
+.c-card{
+  background:#fff;
+  padding: .57em 1.1em;
+  margin-bottom: .57em;
+  .title{
+    text-align: center;
+    position: relative;
+    .help-icon{
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+
+.xaxis-chart{
+  direction: ltr;
+  fill:$font-color-grey;
+}

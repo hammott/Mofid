@@ -1,0 +1,32 @@
+@import '../../assets/variables.scss';
+
+
+.option{
+  cursor: pointer;
+  ng-svg ::ng-deep  svg{
+    transition: .2s all;
+    stroke-linecap: round;
+    stroke-width: 1.2;
+    stroke:$font-color;
+  }
+  &.regular{
+    ng-svg ::ng-deep  svg{
+      fill:$font-color
+    }
+  }
+  p{
+    margin: 0.1em 0;
+    font-size: $font-size-sm;
+    transition: .2s all;
+  }
+  &:hover ,
+  &.selected{
+    ng-svg ::ng-deep  svg{
+      fill:$font-green;
+      stroke-width: 0;
+    }
+    p{
+      color:$font-green;
+    }
+  }
+}

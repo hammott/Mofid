@@ -1,0 +1,23 @@
+
+<div class="display-flex justify-content-between">
+  <div class="text-center option" [class.selected]="selected == 1" (click)="selected = 1">
+    <ng-svg [src]="'assets/icons/chart.svg'"></ng-svg>
+    <p>نمودار</p>
+  </div>
+  <div class="text-center option" [class.selected]="selected == 2" (click)="selected = 2">
+    <ng-svg [src]="'assets/icons/funnel.svg'"></ng-svg>
+    <p>تفکیک</p>
+  </div>
+  <div class="text-center option" [class.selected]="selected == 3" (click)="selected = 3">
+    <ng-svg [src]="'assets/icons/star.svg'"></ng-svg>
+    <p>مورد علاقه</p>
+  </div>
+  <div class="text-center option regular" [class.selected]="selected == 4" (click)="selected = 4">
+    <ng-svg [src]="'assets/icons/doc.svg'"></ng-svg>
+    <p>گزارش</p>
+  </div>
+  <div class="text-center option regular" [class.selected]="selected == 5" (click)="selected = 5">
+    <ng-svg [src]="'assets/icons/paper.svg'"></ng-svg>
+    <p>اخبار</p>
+</div>
+

@@ -1,0 +1,114 @@
+<div class="display-flex justify-content-center">
+  <div class="phone">
+    <div class="structure">
+      <div class="buttons">
+        <div class="switch"></div>
+        <div class="volumne-1"></div>
+        <div class="volumne-2"></div>
+        <div class="right-buttons"></div>
+      </div>
+      <div class="border">
+        <div class="camera-container"></div>
+        <div class="screen">
+          <div class="header">
+            <app-header></app-header>
+          </div>
+          <div>
+            <div class="c-card">
+              <div class="title">
+                <div class="help-icon">
+                  <object data="../assets/icons/help.svg" type=""></object>
+                </div>
+                <p>مثبت و منفی</p>
+              </div>
+              <p class="font-grey" [ngStyle]="{'margin': 0}">کل {{500 | faNumber}}</p>
+              <div class="display-flex justify-content-center" [ngStyle]="{'height.em': 9.3}">
+                <apx-chart
+                  [series]="chartOptions.series"
+                  [chart]="chartOptions.chart"
+                  [dataLabels]="chartOptions.dataLabels"
+                  [plotOptions]="chartOptions.plotOptions"
+                  [yaxis]="chartOptions.yaxis"
+                  [xaxis]="chartOptions.xaxis"
+                  [colors]="chartOptions.colors"
+                  [grid]="chartOptions.grid"
+                  [legend]="chartOptions.legend"
+                  [tooltip]="chartOptions.tooltip"
+                ></apx-chart>
+              </div>
+              <div class="display-flex progress-chart justify-content-between">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="display-flex progress-chart-title justify-content-between">
+                <span>مثبت<span>{{20 | faNumber}}</span></span>
+                <span>منفی<span>{{50 |faNumber}}</span></span>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="title">
+                <div class="help-icon">
+                  <object data="../assets/icons/help.svg" type=""></object>
+                </div>
+                <p>ارزیابی</p>
+              </div>
+              <div class="c-card-panel">
+                <div class="overview">
+                    <div class="display display-flex justify-content-around align-items-center">
+                        <span>عملکرد</span>
+                        <span class="numbers">
+                            <span class="font-lg font-green">{{9 | faNumber}}</span>
+                            <span class="font-sm">/{{10 | faNumber}}</span>
+                        </span>
+                    </div>
+                    <div class="display-flex justify-content-between align-items-center">
+                        <span class="font-sm font-grey">محاسبات براساس عملکرد گذشته است.</span>
+                        <a class="font-sm font-green" >توضیحات</a>
+                    </div>
+                </div>
+              </div>
+              <ng-container *ngFor="let data of evaluationData; let index = index">
+                <div class="collapse-items">
+                  <button class="btn c-card-panel" [class.selected]="openItem === index" (click)="itemSelect(index)">
+                    <div class="display-flex justify-content-between align-items-center">
+                        <span>{{data.name }}</span>
+                        <span class="arrow">
+                          <object data="../assets/icons/arrow.svg" type=""></object>
+                        </span>
+                        <span class="numbers">
+                            <span [ngStyle]="{'color': (data.value > 5 ? '#40C79A' : (data.value !== 5 ? '#FF526D' : ''))  }">{{data.value | faNumber}}</span>
+                            <span class="font-sm">/{{10 | faNumber}}</span>
+                        </span>
+                    </div>
+                  </button>
+                  <div class="collapse close" [class.open]="openItem === index">
+                    <table class="table">
+                        <tbody >
+                          <tr *ngFor="let item of data.items">
+                            <td class="text-right">{{item.name}}</td>
+                            <td class="text-center number-column">
+                                <div class="display-flex justify-content-between">
+                                    <div class="font-grey font-md">{{item.percentage | faNumber}}%</div>
+                                    <span class="numbers">
+                                        <span [ngStyle]="{'color': (item.value > 5 ? '#40C79A' : item.value !== 5 ? '#FF526D' : '')  }">{{item.value | faNumber}}</span>
+                                        <span class="font-sm">/{{10 | faNumber }}</span>
+                                    </span>
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        <div class="footer">
+          <app-footer></app-footer>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

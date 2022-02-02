@@ -1,0 +1,65 @@
+@import '../../assets/variables.scss';
+.header {
+  justify-content: start;
+  padding-bottom: 1.5em;
+  &-buttons > div {
+    height: .7em;
+    width: .7em;
+    border-radius:50%;
+    background:$header-button;
+    margin: 0 1em;
+    &::before{
+      content: "";
+      height: .7em;
+      width: .7em;
+      background:$header-button;
+      display: block;
+      margin: 0 1em;
+    }
+    &::after{
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: .4em solid transparent;
+      border-right: .4em solid transparent;
+      border-top: .7em solid $header-button;
+      margin-left: 1em;
+      margin-right: -1em;
+    }
+  }
+}
+.search-bar{
+  flex: 0 0 75%;
+  height: 2.3em;
+  .input-group{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $background;
+    border-radius: .35em !important;
+    overflow: hidden;
+  }
+  input.form-control{
+    background:transparent;
+    border:none;
+    padding-right: 2.4em;
+    height: 100%;
+    width: 100%;
+    font-family: inherit;
+    &:focus{
+      outline: none;
+      border:none
+    }
+  }
+  ::placeholder{
+      color:#BFBFBF !important;
+  }
+  .input-icon{
+      position: absolute;
+      z-index: 4;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1.35em;
+      right: .58em;
+  }
+}
