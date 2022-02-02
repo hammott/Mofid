@@ -3,6 +3,22 @@ import { Observable  } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { map } from 'rxjs/operators';
+export abstract class SvgLoader {
+	abstract getSvg(url: string): Observable<string>;
+}
+
+@Injectable({providedIn:'root'})
+export class SvgHttpLoader extends SvgLoader {
+
+	constructor(private http: HttpClient) {
+		super();
+	}
+
+	getSvg(url: string): Observable<string> {
+		return this.http.get(url, { responseType: 'text' });
+	}
+}
+
 @Component({
   selector: 'ng-svg',
   template: '<span #svg class="display-flex justify-content-center">{{load | async}}</span>'
@@ -24,18 +40,4 @@ export class NGSvgComponent implements OnInit {
   }
 }
 
-export abstract class SvgLoader {
-	abstract getSvg(url: string): Observable<string>;
-}
 
-@Injectable({providedIn:'root'})
-export class SvgHttpLoader extends SvgLoader {
-
-	constructor(private http: HttpClient) {
-		super();
-	}
-
-	getSvg(url: string): Observable<string> {
-		return this.http.get(url, { responseType: 'text' });
-	}
-}
